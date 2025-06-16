@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Father’s Day!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #4b0082;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .question-box {
+      margin: 20px auto;
+      width: 60%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .question {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #4b0082;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    #letter {
+      display: none;
+      margin-top: 40px;
+      background: #fff8dc;
+      padding: 30px;
+      border-radius: 12px;
+      border: 3px dashed #4b0082;
+      animation: fadeIn 2s ease-in-out;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Dad’s Ultimate Quiz Challenge 🎉</h1>
+  <p>Score at least 3/10 to reveal a *special* message created just for you!</p>
+
+  <div class="question-box" id="quiz-area">
+    <div class="question">1. What is 5 + 3?</div>
+    <input type="text" id="q1">
+    <div class="question">2. How many days are there in a week?</div>
+    <input type="text" id="q2">
+    <div class="question">3. What color is the sun?</div>
+    <input type="text" id="q3">
+    <div class="question">4. What animal says “moo”?</div>
+    <input type="text" id="q4">
+    <div class="question">5. What's the capital of India?</div>
+    <input type="text" id="q5">
+    <div class="question">6. Which day comes after Saturday?</div>
+    <input type="text" id="q6">
+    <div class="question">7. How many legs does a spider have?</div>
+    <input type="text" id="q7">
+    <div class="question">8. What's 10 divided by 2?</div>
+    <input type="text" id="q8">
+    <div class="question">9. What’s the opposite of “hot”?</div>
+    <input type="text" id="q9">
+    <div class="question">10. Which fruit keeps doctors away?</div>
+    <input type="text" id="q10">
+
+    <button class="button" onclick="checkAnswers()">Submit Answers</button>
+    <div id="result"></div>
+  </div>
+
+  <div id="letter">
+    <h2>💌 Happy Father's Day 💌</h2>
+    <p>Dear Dad,</p>
+    <p>First and foremost—*Happy Father's Day!* You're legendary, and I mean that in the most sarcastically sincere way possible. Now, here’s a gentle little reminder wrapped in love and mischief: could we take a tiny break from all the scolding sessions? 😅</p>
+    <p>On a completely unrelated note (or is it?), I humbly present my case for you to buy me a computer. After all, how else am I supposed to become a programming prodigy if I can’t practice properly? 😇</p>
+    <p>Thanks for always being you—funny, fierce, and a fantastic dad. This goofy quiz and heartfelt page are small gestures of a big, brilliant love!</p>
+    <p>With admiration, charm, and just a dash of dramatic flair,<br><strong>Your favorite child ❤️</strong></p>
+  </div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+  const correctAnswers = [
+    "8", "7", "yellow", "cow", "new delhi",
+    "sunday", "8", "5", "cold", "apple"
+  ];
+  for (let i = 1; i <= 10; i++) {
+    const userAnswer = document.getElementById("q" + i).value.trim().toLowerCase();
+    if (userAnswer === correctAnswers[i - 1]) score++;
+  }
+  document.getElementById("result").textContent = `You scored ${score}/10`;
+  if (score >= 3) {
+    document.getElementById("quiz-area").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+  } else {
+    document.getElementById("result").textContent += " — Try again for the surprise!";
+  }
+}
+</script>
+
+</body>
+</html>
